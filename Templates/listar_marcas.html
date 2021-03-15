@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+
+    <p></p>
+    <h1>Marcas registradas</h1>
+    <p></p>
+    <p></p>
+
+    <div class="row col-12">
+        <a class="btn col-md-3" href="{% url 'registrarmarca' %}" style="background-color: #9C5F71;">  Registrar otro </a>
+    </div>
+      <p></p>
+     <p></p>
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      <th scope="col">Marcas</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for marca in marcas %}
+      <tr>
+              <td><a class="btn btn-warning" href="{% url 'editarmarca' marca.id%}">Editar</a> </td>
+          <td><a class="btn btn-danger" href="{% url 'eliminarmarca' marca.id%}">Eliminar</a> </td>
+
+      <td>{{ marca.marca }}</td>
+
+   </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+
+{% endblock %}

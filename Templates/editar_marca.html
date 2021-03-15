@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+          A simple danger alert—check it out!
+        </div>
+    {% endif %}
+
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <h1> Actualizacion de Marca </h1>
+    <p></p>
+    <form action="{% url 'actualizarmarca' marca.id %}" method="POST">
+        {% csrf_token %}
+        {% if mensaje %}
+            <div class="alert alert-success" role="alert">
+              Marca actualizada !
+            </div>
+        {% endif %}
+
+        {{ form|crispy }}
+    <p></p>
+        <button type="submit" class="btn" style="background-color: #9C5F71;">Actualizar Marca</button>
+
+    </form>
+
+{% endblock %}

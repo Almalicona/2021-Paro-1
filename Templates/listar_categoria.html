@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+
+    <p></p>
+    <h1>REGISTRO DE CATEGORIAS</h1>
+    <p></p>
+    <p></p>
+
+    <div class="row col-12 ">
+
+        <a class="btn col-md-3" href="{% url 'registrarCategoria' %}" style="background-color: #9C5F71;"> Registrar otra categoria </a>
+    </div>
+    <p></p>
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      <th scope="col">categorias</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for categoria in categorias %}
+      <tr>
+          <td><a class="btn btn-warning" href="{% url 'editarcategoria' categoria.id %}">Editar</a> </td>
+          <td><a class="btn btn-danger" href="{% url 'eliminarcategoria' categoria.id%}">Eliminar</a> </td>
+      <td>{{ categoria.categoria_nombre }}</td>
+      </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+
+    <p></p>
+    <h1>PRODUCTOS REGISTRADOS</h1>
+    <p></p>
+     <p></p>
+
+    <div class="row col-12">
+
+        <a class="btn col-md-3" href="{% url 'registrarproducto' %}" style="background-color: #9C5F71;">  Registrar otro </a>
+    </div>
+      <p></p>
+     <p></p>
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+        <th scope="col">EDITAR</th>
+        <th scope="col">ELIMINAR</th>
+      <th scope="col">Nombre del Producto</th>
+      <th scope="col">Precio del producto</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Marca</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for producto in productos %}
+      <tr>
+      <td><a class="btn btn-warning" href="{% url 'editarproducto' producto.id %}">Editar</a> </td>
+          <td><a class="btn btn-danger" href="{% url 'eliminarproducto' producto.id %}">Eliminar</a> </td>
+      <td>{{ producto.registro_producto }}</td>
+      <td>{{ producto.precio_producto }}</td>
+      <td>{{ producto.categoria_nombre }}</td>
+      <td>{{ producto.marca }}</td>
+
+
+      </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
